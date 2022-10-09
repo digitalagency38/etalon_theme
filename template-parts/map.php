@@ -21,7 +21,7 @@
 				<div class="email"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-mail.svg"
 										alt=""> <a href="mailto:market@et-invest.ru">market@et-invest.ru</a></div>
 				<div class="timetable"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-time.svg"
-											alt=""> с 9:00 до 19:00
+											alt=""> с 10:00 до 19:00
 				</div>
 			</div>
 		</div>

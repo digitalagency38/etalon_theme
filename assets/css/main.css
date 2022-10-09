@@ -16560,3 +16560,28 @@ body .isFieldsHidden > *:last-child {
         border: 0 !important;
     }
 }
+
+.card-product .card-img-top {
+	background-size: contain !important;
+	background-repeat: no-repeat !important;
+}
+.wpcf7-response-output {
+	display: none !important;
+}
+.modal-body.isSent {
+	display: none !important;
+}
+.isSent .modal-body {
+	display: none;
+}
+.isSent .modal-body.isSent {
+	display: block !important;
+}
+.isSent .flex-column {
+display: none !important; 
+}  
+.isSent .d-flex.isSent {
+	display: flex !important;
+	flex-direction: column;
+    align-items: flex-start;
+}

@@ -1,7 +1,7 @@
 <!-- Удаленный подбор -->
 <section class="remote-search">
 	<div class="container h-100">
-		<div class="row h-100">
+		<div class="row h-100 form_sending">
 			<div class="col-md-12 px-md-3 d-flex justify-content-center flex-column">
               <?php
               $id = get_queried_object_id();
@@ -25,6 +25,11 @@
 
 				?>
 			</div>
+            <div class="col-md-12 px-md-3 d-flex justify-content-center modal-body isSent">
+                <h2>Ваша заявка принята</h2>
+                <p>Мы свяжемся с вами в течение 2х часов</p>
+                <a href="/catalog" class="btn btn-primary d-none d-md-block" style="display: inline-block !important; margin-top: 10px;">Вернуться в каталог</a>
+            </div>
 			<div class="col-md-12">
 				<div class="fluid-right">
 					<!--<div class="fluid-right-content"

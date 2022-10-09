@@ -106,7 +106,7 @@ get_header(); ?>
 										<div class="icon">
 											<img
 													src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-width.svg"
-													alt=""></div> <span>Ширина:</span> <?php the_field( 'width' ); ?>
+													alt=""></div> <span>Ширина:</span> <?php the_field( 'width' ); ?> мм
 									</div>
 								<?php endif; ?>
 								<?php if ( get_field( 'depth' ) ) : ?>
@@ -202,7 +202,7 @@ get_header(); ?>
 										<div class="icon">
 											<img
 													src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-width.svg"
-													alt=""></div> <span>Ширина:</span> <?php the_field( 'width' ); ?>
+													alt=""></div> <span>Ширина:</span> <?php the_field( 'width' ); ?> мм
 									</div>
 								<?php endif; ?>
 								<?php if ( get_field( 'height' ) ) : ?>
