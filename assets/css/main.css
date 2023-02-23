@@ -1493,6 +1493,13 @@ progress {
 	}
 }
 
+@media all and (min-width: 1199px) {
+	
+	.col-md-8 {
+		flex: 0 0 auto;
+		width: 33.33333% !important;
+	}
+}
 @media (min-width: 768px) {
 	.col-md {
 		flex: 1 0 0%;
@@ -1575,7 +1582,7 @@ progress {
 
 	.col-md-8 {
 		flex: 0 0 auto;
-		width: 33.3333333333%;
+		width: 50%;
 	}
 
 	.col-md-9 {
@@ -15185,7 +15192,6 @@ body.catalog-open #primary:before {
 }
 
 .card-product .card-body {
-	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 }
@@ -16419,7 +16425,7 @@ color: #FFFFFF;
 .block_form_list__form form > p label:nth-child(1), .block_form_list__form form > p label:nth-child(2) {
 	width: calc(50% - 10px);
 }
-.block_form_list__form form > p label:nth-child(3), .block_form_list__form form > p label:nth-child(3) span, .block_form_list__form form > p label:nth-child(2) span, .block_form_list__form form > p label:nth-child(2) span {
+.block_form_list__form form > p label:nth-child(3), .block_form_list__form form > p label:nth-child(4), .block_form_list__form form > p label:nth-child(3) span, .block_form_list__form form > p label:nth-child(2) span, .block_form_list__form form > p label:nth-child(2) span {
  	width: 100%; 
   	display: block;
 }
@@ -16584,4 +16590,19 @@ display: none !important;
 	display: flex !important;
 	flex-direction: column;
     align-items: flex-start;
+}
+.remote-search .fluid-right-content {
+	overflow: hidden;
+}
+@media all and (max-width: 990px) {
+	.remote-search .fluid-right {
+		margin-top: 0;
+	}
+}
+.product .description {
+	display: block !important;
+    order: 10;
+}
+.container article img {
+	height: auto !important;
 }

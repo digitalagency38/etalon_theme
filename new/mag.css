@@ -1,0 +1,56 @@
+.woocommerce .card-product .card-img-top:before {
+	display: none;
+}
+.woocommerce .woocommerce-ordering {
+	float: unset;
+}
+.woocommerce-ordering .btn {
+	display: none;
+}
+.bapf_head h3 {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'EB Garamond',serif;
+    margin-top: 0;    
+  	margin-bottom: 23px;
+}
+.bapf_sfilter .bapf_body .mCSB_container>ul, .bapf_sfilter .bapf_body>ul {
+	padding: 0;
+}
+.bapf_sfilter ul li {
+	display: flex;
+  	font-size: 16px;
+    line-height: 21px;
+    color: #294857;
+  	margin-bottom: 10px !important;
+}
+.bapf_sfilter.bapf_ckbox input[type=checkbox] {
+	flex: 0 0 23px;
+  	height: 23px;
+  	margin-right: 8px;
+  	border-radius: 2px;
+  	border: 1px solid rgba(0,0,0,.25);
+}
+.bapf_ckbox_sqchck input[type=checkbox]:checked {
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10' fill='none'%3E%3Cpath d='M1 4L5.5 8.5L13 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 50% no-repeat;
+  background-color: #dc3545;
+    border-color: #dc3545;
+}
+.bapf_ckbox_sqchck input[type=checkbox]:checked:after {
+	content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  	height: 100%;
+    border: 0;
+    transform: unset;
+    background: linear-gradient(180deg,#d11e30 0%,#a52937 100%);
+    z-index: -1;
+}
+.woocommerce .woocommerce-ordering {
+	display: none;
+}
+.bapf_sfilter ul li.checked {
+	color: #D11E30;
+}

@@ -23,8 +23,7 @@
                               <?php $products = new WP_Query( [ 'post_type' => 'product', 'posts_per_page' => 20, 'post__in' => get_field('products', get_queried_object_id()) ] );
 								while ( $products->have_posts() ) : $products->the_post();
 									$thumbnail_url = get_the_post_thumbnail_url( $post->ID, 'large' );
-									$price         = get_field( 'price', $post->ID ) ? get_field( 'price', $post->ID ) : '';
-									$special_price = get_field( 'old_price', $post->ID ) ? get_field( 'old_price', $post->ID ) : '';
+									$product = wc_get_product( $post );
 									?>
 									<div class="swiper-slide">
 										<div class="card card-product">
@@ -36,20 +35,21 @@
 											<div class="card-body">
 												<a href="<?php the_permalink(); ?>"
 												   class="title"><?php the_title(); ?></a>
-
-												<div class="price d-flex align-items-center">
-													<?php if ( $price ) : ?>
-														<div class="regular__price"><?php the_price( $price ); ?>
-														₽</div><?php endif; ?>
-													<?php if ( $special_price ) : ?>
-														<div class="special__price"><?php the_price( $special_price ); ?>
-														₽</div><?php endif; ?>
-													<?php if ( $price && $special_price ) : ?>
-														<div class="discount"><?php echo round( ( ( ( (float) $price / (float) $special_price ) * 100 - 100 ) * - 1 ), 1 ); ?>
-															%
-														</div>
-													<?php endif; ?>
-												</div>
+                                               <div class="price d-flex align-items-center">
+                                                  <div class="regular__price">
+                                                    <?php echo number_format( $product->get_price(), 0, ',', ' ' ); ?> ₽
+                                                  </div>
+                                                  <?php if ($product->get_regular_price()): ?>
+                                                        <div class="special__price">
+                                                            <?php echo number_format( $product->get_regular_price(), 0, ',', ' ' ); ?> ₽
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    <?php if ( $product->get_price() && $product->get_regular_price() ) : ?>
+                                                        <div class="discount"><?php echo round( ( ( ( (float) $product->get_price() / (float) $product->get_regular_price() ) * 100 - 100 ) * - 1 ), 1 ); ?>
+                                                            %
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </div>
 											</div>
 											<a href="<?php the_permalink(); ?>" class="btn btn-primary">Подробнее</a>
 

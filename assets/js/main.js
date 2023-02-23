@@ -10,8 +10,11 @@
         	$(this).text('Показать еще')
         }
     });
-
+if($( 'select' ).length) {
       $( 'select' ).selectpicker();
+} else {
+	
+}
 
       $( '.navbar-catalog .btn' ).on( 'click', function( e ) {
          e.preventDefault();
@@ -284,9 +287,8 @@
             // when window width is >= 320px
             320: {
                slidesPerView: 1,
-               spaceBetween: 20,
-               centeredSlides: true,
-               centeredSlidesBounds: true
+				width: 262,
+               spaceBetween: 20
             },
 
             // when window width is >= 480px

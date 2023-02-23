@@ -26,7 +26,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PVMT7FZ');</script>
 <!-- End Google Tag Manager -->
+
+	
 	<script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>
+	<meta name="yandex-verification" content="e168fe5a521f2840" />
+	<meta name="google-site-verification" content="VrrjVXrJYXO9Qw1ma6QV4rBnb5ndKyMzwU-Le8mOuOE" />
 </head>
 
 <body <? body_class( "d-flex flex-column h-100" ); ?>>
@@ -141,7 +145,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                             <a href="<?php echo get_term_link( $catalog_term->term_id ); ?>">
 												<?php
 												$icon_url = get_field( 'icon', $catalog_term );
-
 												if ( $icon_url ) :
 													?>
 

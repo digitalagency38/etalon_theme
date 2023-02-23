@@ -7,59 +7,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<div id="primary" class="content-area py-5">
-		<div class="page-header">
-			<div class="container">
+
+	<?php
+	while ( have_posts() ) :
+		the_post();
+
+		get_template_part( 'template-parts/content', get_post_type() );
+
+	endwhile; // End of the loop.
+	?>
+<section class="remote-search">
+	<div class="container h-100">
+		<div class="row h-100">
+			<div class="col-md-12 px-md-3 d-flex justify-content-center flex-column">
+				<h3><?= get_field('zagolovok_formy', 'option'); ?></h3>
+				<p><?= get_field('tekst_formy', 'option'); ?></p>
 				<?php
-				if ( function_exists( 'dimox_breadcrumbs' ) ) {
-					dimox_breadcrumbs();
-				} ?>
-              	<div class="img_single">
-					<?
-					the_post_thumbnail(); ?>
-				</div>
-				<div class="stick_pos">
-				<div class="date_single">
-					<?php
-					while ( have_posts() ) : the_post();
-						the_date();
-					endwhile;
-					?>
-				</div>
-                                      
-                                    <?php $stick_act = get_field( 'stick_act' );?>	
-                                  		<?php if ($stick_act == '1'): ?>
-                                      		<div class="card-stick">Акция завершена</div> 
-                                    	<?php endif ?>
-				</div>
-				<h1>
-					<?
-					the_title(); ?>
-				</h1>
+				
+					echo do_shortcode( get_field('cf7_shortcode', 'option') );
+
+				?>
 			</div>
-		</div>
-		<div class="entry-content">
-			<div class="container">
-
-				<article>
-
-					<?php
-					while ( have_posts() ) : the_post();
-						the_content();
-					endwhile;
-					?>
-
-					<? get_template_part( 'template-parts/single-' . get_post_type( $post ) ); ?>
-
-				</article>
-
+			<div class="col-md-12">
+				<div class="fluid-right">
+					<!--<div class="fluid-right-content"
+						 style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/remote-search.jpg"></div>-->
+                  <div class="fluid-right-content"
+						 style="background-image: url(<?= get_field('kartinka_formy', 'option'); ?>"></div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="container info">
-		<?php the_field( 'seo_text' ); ?>
-	</div>
+</section>
 
 <?php
 get_footer();

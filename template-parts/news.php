@@ -28,7 +28,7 @@
                                   <div class="card_stick">
                                     <?php $stick_act = get_field( 'stick_act' );?>	
 									<div class="card-date">
-									<?php the_date(); ?></div>
+									<?php echo get_the_date(); ?></div>
                                   		<?php if ($stick_act == '1'): ?>
                                       		<div class="card-stick">Акция завершена</div> 
                                     	<?php endif ?>

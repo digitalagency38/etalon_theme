@@ -43,10 +43,12 @@
 	</div>
 </div>
 <?php $times = ($main['times']); ?>	
-<div class="container timer_new">
-  <div class="timer_new__text">До конца акции осталось:</div>
-  <div class="timer_new__timer"><?php echo do_shortcode($times)?></div>
-</div>
+<? if (!empty($times)): ?>
+  <div class="container timer_new">
+    <div class="timer_new__text">До конца акции осталось:</div>
+    <div class="timer_new__timer"><?php echo do_shortcode($times)?></div>
+  </div>
+<? endif; ?>
 <?php $blocks_red = ($main['blocks_red']); ?>	
 <div class="container">
 	<div class="blocks_red">
@@ -75,6 +77,9 @@
 
 
 
+<?php
+$check_tax = ($main['check_tax']);
+if ($check_tax == '0'): ?>
 
 
 <?
@@ -143,9 +148,11 @@
 }, 500)
                 });                
             })
-            jQuery('.tax_filter--js[data-item_tax="<?= $unique_taxes[0]; ?>"]').addClass('isActive');
-            jQuery(`.tax_product--js[data-tax-names*="<?= $unique_taxes[0]; ?>"]`).addClass('isVisible');
-        	console.log('<?= $unique_taxes[0]; ?>');
+            //jQuery('.tax_filter--js[data-item_tax="<?= $unique_taxes[0]; ?>"]').addClass('isActive');
+            jQuery('.tax_filter--js:first-child').addClass('isActive');
+            //jQuery(`.tax_product--js[data-tax-names*="<?= $unique_taxes[0]; ?>"]`).addClass('isVisible');
+            jQuery(`.tax_product--js`).addClass('isVisible');
+        	console.log('<?= $taxes; ?>');
         });
         
       
@@ -158,6 +165,7 @@
         	<div class="categories_titles">Каталог товаров</div>
         	<div class="categories_items">
         	<div class="categories_btns">
+				<button class="tax_filter--js" data-item_tax="<?= $taxes; ?>">Все</button>
             	<? foreach( $unique_taxes as $button) { ?>
             		<button class="tax_filter--js" data-item_tax="<?= $button; ?>"><?= $button; ?></button>
                 <? }; ?>
@@ -245,6 +253,7 @@ setTimeout(() => {
     }; 
   </script>
 
+<?php endif; ?>
 
 
 

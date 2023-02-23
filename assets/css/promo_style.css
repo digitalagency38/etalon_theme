@@ -110,7 +110,8 @@
 }
 .blocks_red__items {
 	position: relative;
-  	height: 558px;
+  	max-height: 558px;
+	transition: max-height 1s ease;
   	overflow: hidden;
 }
 .blocks_red__items:before {
@@ -124,8 +125,10 @@
   bottom: 0;
 }
 .blocks_red__items.isActive {
-	height: auto;
+	max-height: 4000px;
+	transition: max-height .5s ease;
   overflow: unset;
+	height: auto;
 }
 .blocks_red__items.isActive:before {
 	display: none;
