@@ -765,6 +765,9 @@ color: #294857;
 .swiper-pagination-bullet-active {
 	background: #294857 !important;
 }
+.tax-product_cat .content-area .row>.col-md-16 {
+	width: 100%;
+}
 @media all and (max-width: 1023px) {
 	.products__list {
 		position: relative;
@@ -789,9 +792,6 @@ color: #294857;
 		background: #f4f4f4;
 		padding: 0 1rem;
 		padding-bottom: 2rem;
-	}
-	.tax-product_cat .content-area .container>.row>.col-md-16, .tax-product_cat .content-area .container>.row>.col-md-8 {
-		width: 100%;
 	}
 	.filter_sort {
 		display: flex;

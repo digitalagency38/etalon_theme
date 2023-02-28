@@ -1499,6 +1499,10 @@ progress {
 		flex: 0 0 auto;
 		width: 33.33333% !important;
 	}
+	.tax-product_cat .col-md-8 {
+		flex: 0 0 auto;
+		width: 50% !important;
+	}
 }
 @media (min-width: 768px) {
 	.col-md {
@@ -15258,13 +15262,13 @@ h2, .h2, h4, .h4 {
 }
 
 .product__photo-main {
-	max-height: 500px;
+	max-height: 600px;
 	text-align: center;
 	margin-bottom: 2rem;
 }
 
 .product__photo-main img {
-	max-height: 500px;
+	max-height: 600px;
 	max-width: 100%;
 }
 

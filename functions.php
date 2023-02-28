@@ -63,3 +63,72 @@ function the_price( $price ) {
 add_theme_support( 'post-thumbnails' );
 
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+
+
+// Add catalog order by arguments
+function wc_add_catalog_orderby_args( $sort_args ) {
+
+	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+
+	switch( $orderby_value ) {
+
+		case 'name':
+			$sort_args['orderby'] = 'title';
+			$sort_args['order']   = 'asc';
+		break;
+
+		case 'name-desc':
+			$sort_args['orderby']  = 'title';
+			$sort_args['order']    = 'desc';
+		break;
+
+		case 'price':
+			WC()->query->remove_ordering_args();    // remove ordering queries
+			$sort_args['meta_key'] = '_price';
+			$sort_args['orderby']  = ['meta_value_num' => 'asc', 'title' => 'asc'];
+		break;
+
+		case 'price-desc':
+			WC()->query->remove_ordering_args();    // remove ordering queries
+			$sort_args['meta_key'] = '_price';
+			$sort_args['orderby']  = ['meta_value_num' => 'desc', 'title' => 'asc'];
+		break;
+	}
+
+	return $sort_args;
+}
+add_filter( 'woocommerce_get_catalog_ordering_args', 'wc_add_catalog_orderby_args' );
+
+// Custom default catalog orderby options
+function wc_custom_catalog_orderby_options( $orderby ) {
+
+	// Remove "Default sorting"
+	if ( isset( $orderby['menu_order'] ) )      unset( $orderby['menu_order'] );
+
+        // Remove "Sort by popularity"
+	if ( isset( $orderby['popularity'] ) )      unset( $orderby['popularity'] );
+
+        // Remove "Sort by average rating"
+	if ( isset( $orderby['rating'] ) )          unset( $orderby['rating'] );
+
+        // Remove "Sort by newness"
+	if ( isset( $orderby['date'] ) )            unset( $orderby['date'] );
+
+        // Remove "Sort by price: low to high"
+	if ( isset( $orderby['price'] ) )           unset( $orderby['price'] );
+
+        // Remove "Sort by price: high to low"
+	if ( isset( $orderby['price-desc'] ) )      unset( $orderby['price-desc'] );
+
+	$orderby['name']        = "Sort by Name: A to Z";
+	$orderby['name-desc'] 	= "Sort by Name: Z to A";
+	$orderby['price'] 	= "Sort by Price: low to high";
+	$orderby['price-desc'] 	= "Sort by Price: high to low";
+
+	return $orderby;
+}
+add_filter( 'woocommerce_catalog_orderby', 'wc_custom_catalog_orderby_options' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'wc_custom_catalog_orderby_options' );
+
+

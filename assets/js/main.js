@@ -250,7 +250,7 @@ if($( 'select' ).length) {
 
       const swiper_news = new Swiper( '.news3', {
 
-         slidesPerView: 4,
+         slidesPerView: 2,
          spaceBetween: 30,
          autoHeight: false,
 
@@ -293,13 +293,13 @@ if($( 'select' ).length) {
 
             // when window width is >= 480px
             680: {
-               slidesPerView: 3,
+               slidesPerView: 2,
                spaceBetween: 30
             },
 
             // when window width is >= 640px
             1000: {
-               slidesPerView: 4,
+               slidesPerView: 2,
                spaceBetween: 30
             }
 
@@ -429,19 +429,37 @@ setTimeout( function() {
 });
 
       let galleryTop = new Swiper( '.gallery-top', {
-         spaceBetween: 10,
+         spaceBetween: 0,
          navigation: {
             nextEl: '.salon-swiper-button-next',
             prevEl: '.salon-swiper-button-prev'
          },
+         centeredSlides: true,
          loop: false,
       });
       let galleryThumbs = new Swiper( '.gallery-thumbs', {
-         spaceBetween: 10,
+         spaceBetween: 30,
          centeredSlides: true,
          slidesPerView: 'auto',
          slideToClickedSlide: true,
          loop: false,
+         breakpoints: {
+
+            // when window width is >= 320px
+            320: {
+			 spaceBetween: 15,
+            },
+
+            // when window width is >= 640px
+            1023: {
+			 spaceBetween: 30,
+			 centeredSlides: true,
+			 slidesPerView: 'auto',
+			 slideToClickedSlide: true,
+			 loop: false,
+            }
+
+         }
       });
       galleryTop.controller.control = galleryThumbs;
       galleryThumbs.controller.control = galleryTop;
