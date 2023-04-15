@@ -21,20 +21,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $related_products ) : ?>
 
-	<section class="related products">
+	<section class="related upsells products">
 
 		<?php
 		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h3><?php echo esc_html( $heading ); ?></h3>
 		<?php endif; ?>
 		
 		<?php woocommerce_product_loop_start(); ?>
+			<div class="swiper news4">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
 
 			<?php foreach ( $related_products as $related_product ) : ?>
 
+						<div class="swiper-slide">
 					<?php
 					$post_object = get_post( $related_product->get_id() );
 
@@ -42,8 +46,17 @@ if ( $related_products ) : ?>
 
 					wc_get_template_part( 'content', 'product' );
 					?>
+				</div>
 
 			<?php endforeach; ?>
+				</div>
+
+			</div>	
+				<div class="swiper-pagination-block d-flex align-items-center justify-content-center mt-4">
+					<div class="ar-swiper-button-prev me-auto"></div>
+					<div class="ar-swiper-pagination"></div>
+					<div class="ar-swiper-button-next ms-auto"></div>
+				</div>
 
 		<?php woocommerce_product_loop_end(); ?>
 

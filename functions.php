@@ -132,3 +132,57 @@ add_filter( 'woocommerce_catalog_orderby', 'wc_custom_catalog_orderby_options' )
 add_filter( 'woocommerce_default_catalog_orderby_options', 'wc_custom_catalog_orderby_options' );
 
 
+// add_action( 'init', 'true_register_post_type_init' );
+ 
+// function true_register_post_type_init() {
+ 
+// 	$dis_labels = array(
+// 		'name' => 'Блог дизайнера',
+// 		'singular_name' => 'Запись',
+// 		'add_new' => 'Добавить Запись',
+// 		'add_new_item' => 'Добавить Запись',
+// 		'edit_item' => 'Редактировать Запись',
+// 		'new_item' => 'Новая Запись',
+// 		'all_items' => 'Все Записи',
+// 		'search_items' => 'Искать Запись',
+// 		'not_found' =>  'Записи по заданным критериям не найдено.',
+// 		'not_found_in_trash' => 'В корзине нет Записей.',
+// 		'menu_name' => 'Блог дизайнера'
+// 	);
+ 
+// 	$dis_args = array(
+// 		'labels' => $dis_labels,
+// 		'public' => true,
+// 		'publicly_queryable' => true,
+// 		'has_archive' => false,
+// 		'menu_icon' => 'dashicons-star-filled',
+// 		'menu_position' => 3,
+// 		'supports' => array( 'title' )
+// 	);
+// 	$port_labels = array(
+// 		'name' => 'Портфолио',
+// 		'singular_name' => 'Запись',
+// 		'add_new' => 'Добавить Запись',
+// 		'add_new_item' => 'Добавить Запись',
+// 		'edit_item' => 'Редактировать Запись',
+// 		'new_item' => 'Новая Запись',
+// 		'all_items' => 'Все Записи',
+// 		'search_items' => 'Искать Запись',
+// 		'not_found' =>  'Записи по заданным критериям не найдено.',
+// 		'not_found_in_trash' => 'В корзине нет Записей.',
+// 		'menu_name' => 'Портфолио'
+// 	);
+ 
+// 	$port_args = array(
+// 		'labels' => $port_labels,
+// 		'public' => true,
+// 		'publicly_queryable' => true,
+// 		'has_archive' => false,
+// 		'menu_icon' => 'dashicons-star-filled',
+// 		'menu_position' => 3,
+// 		'supports' => array( 'title' )
+// 	);
+  
+// 	register_post_type( 'dis', $dis_args );
+// 	register_post_type( 'port', $port_args );
+// }

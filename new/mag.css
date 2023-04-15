@@ -896,11 +896,22 @@ opacity: 0.6;
 		right: -20px;
 	}
 }
-
-
-
-
-
+.upsells .block_top {
+	display: none !important;
+}
+.news .woocommerce-tabs {
+	display: none !important;
+}
+.upsells .card-img-top img {
+	display: block !important;
+}
+.upsells .col-md-8 {
+	width: 100% !important;
+}
+.upsells .swiper-pagination-block {
+	position: unset !important;
+	width: 100% !important;
+}
 
 
 

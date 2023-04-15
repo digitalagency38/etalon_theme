@@ -27,23 +27,35 @@ if ( $upsells ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h3>Рекомендуемые товары</h3>
 		<?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>
+			<div class="swiper news3">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
 
-			<?php foreach ( $upsells as $upsell ) : ?>
+					<?php foreach ( $upsells as $upsell ) : ?>
 
-				<?php
-				$post_object = get_post( $upsell->get_id() );
+						<div class="swiper-slide">
+						<?php
+						$post_object = get_post( $upsell->get_id() );
 
-				setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+						setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-				wc_get_template_part( 'content', 'product' );
-				?>
+						wc_get_template_part( 'content', 'product' );
+						?>
+				</div>
 
-			<?php endforeach; ?>
+					<?php endforeach; ?>
+				</div>
 
+			</div>	
+				<div class="swiper-pagination-block d-flex align-items-center justify-content-center mt-4">
+					<div class="news-swiper-button-prev me-auto"></div>
+					<div class="news-swiper-pagination"></div>
+					<div class="news-swiper-button-next ms-auto"></div>
+				</div>
 		<?php woocommerce_product_loop_end(); ?>
 
 	</section>

@@ -304,6 +304,62 @@ if($( 'select' ).length) {
             }
 
          }
+      });const swiper_news123 = new Swiper( '.news4', {
+
+         slidesPerView: 2,
+         spaceBetween: 30,
+         autoHeight: false,
+
+         pagination: {
+            el: '.ar-swiper-pagination',
+            clickable: true,
+            renderBullet: function( index, className ) {
+               return `<span class="dot swiper-pagination-bullet"></span>`;
+            }
+         },
+
+         navigation: {
+            nextEl: '.ar-swiper-button-next',
+            prevEl: '.ar-swiper-button-prev'
+         },
+
+         // And if we need scrollbar
+         scrollbar: {
+            el: '.news-swiper-scrollbar'
+         },
+         on: {
+            init() {
+               setTimeout( updateFraction, 0, this );
+            },
+            slideChange() {
+               updateFraction( this );
+            },
+            resize() {
+               updateFraction( this );
+            }
+         },
+         breakpoints: {
+
+            // when window width is >= 320px
+            320: {
+               slidesPerView: 1,
+				width: 262,
+               spaceBetween: 20
+            },
+
+            // when window width is >= 480px
+            680: {
+               slidesPerView: 2,
+               spaceBetween: 30
+            },
+
+            // when window width is >= 640px
+            1000: {
+               slidesPerView: 2,
+               spaceBetween: 30
+            }
+
+         }
       });
 
       const swiper_news3 = new Swiper( '.newsjs .swiper', {

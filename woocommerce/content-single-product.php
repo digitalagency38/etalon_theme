@@ -419,82 +419,21 @@ if ( ! empty( $product_tabs ) ) : ?>
 <?php endif; ?>
 	<!-- Новости -->
 	<section class="news mb-md-4 pt-0 pt-md-3">
-			<div class="section-header d-flex align-items-center p-0 p-md-3">
+<!-- 			<div class="section-header d-flex align-items-center p-0 p-md-3">
 				<h3>Рекомендуемые товары</h3>
-			</div>
+			</div> -->
+			<?php
+				/**
+				 * Hook: woocommerce_after_single_product_summary.
+				 *
+				 * @hooked woocommerce_output_product_data_tabs - 10
+				 * @hooked woocommerce_upsell_display - 15
+				 * @hooked woocommerce_output_related_products - 20
+				 */
+				do_action( 'woocommerce_after_single_product_summary' );
+			?>
 
-			<div class="swiper news3">
-				<!-- Additional required wrapper -->
-				<div class="swiper-wrapper">
-                <?php
-                  global $product;
-                  $orderby = 'rand';
-                  $columns = 4;
-                  $related = $product->get_related( 20 );
-                  $args = array(
-                    'post_type' => 'product',
-                    'no_found_rows' => 1,
-                    'posts_per_page' => 10,
-                    'ignore_sticky_posts' => 1,
-                    'orderby' => $orderby,
-                    'post__in' => $related,
-                    'post__not_in' => array($product->id),
-                    'meta_key'             => '_stock_status',
-                    'meta_value'           => 'instock',
-                    'compare'              => '!='
-                  );?> 
-                  <?php 
-
-                  $loop = new WP_Query( $args );
-                      while ( $loop->have_posts() ) : $loop->the_post(); 
-                      global $product;
-                  ?>
-						<div class="swiper-slide">
-							<div class="card card-product border">
-								<a href="<?php the_permalink(); ?>">
-									<div class="card-img-top"
-										 style='background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);'>
-                                      <?php echo get_the_post_thumbnail(); ?>
-									</div>
-								</a>
-								<div class="card-body">
-									<div class="card_block">
-									
-										<a href="<?php the_permalink(); ?>"
-										   class="title"><?php the_title(); ?></a>
-
-									  <div class="price d-flex align-items-center">
-										<div class="regular__price">
-										  <?php echo number_format( $product->get_price(), 0, ',', ' ' ); ?> ₽
-										</div>
-										<?php if ($product->get_regular_price()): ?>
-											  <div class="special__price">
-												  <?php echo number_format( $product->get_regular_price(), 0, ',', ' ' ); ?> ₽
-											  </div>
-										  <?php endif; ?>
-										  <?php if ( $product->get_price() && $product->get_regular_price() ) : ?>
-											  <div class="discount"><?php echo round( ( ( ( (float) $product->get_price() / (float) $product->get_regular_price() ) * 100 - 100 ) * - 1 ), 1 ); ?>
-												  %
-											  </div>
-										  <?php endif; ?>
-                                  </div>
-                                  </div>
-								</div>
-								<a href="<?php the_permalink(); ?>" class="btn btn-primary">Подробнее</a>
-
-							</div>
-						</div>
-					<?php endwhile; ?>
-
-				</div>
-
-
-				<div class="swiper-pagination-block d-flex align-items-center justify-content-center mt-4">
-					<div class="news-swiper-button-prev me-auto"></div>
-					<div class="news-swiper-pagination"></div>
-					<div class="news-swiper-button-next ms-auto"></div>
-				</div>
-			</div>
+			
 
 
 	</section>
